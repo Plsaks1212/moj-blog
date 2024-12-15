@@ -5,79 +5,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mój Blog</title>
     <style>
+      /* Stylizacja całej strony */
       body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f4f4f4;
-        color: #333;
+        background-image: url('tlo-sci-fi.png'); /* Tło w stylu sci-fi */
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        color: #e0e0e0; /* Jasny kolor tekstu dla kontrastu */
       }
+
+      /* Nagłówek strony */
       header {
-        background: #0078d7;
+        background: linear-gradient(90deg, #00d2ff, #3a47d5);
         color: #fff;
-        padding: 10px 20px;
+        padding: 20px;
         text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
       }
+
+      /* Nawigacja */
       nav {
-        background: #0056a3;
+        background: #1c2230;
         padding: 10px;
         text-align: center;
       }
+
       nav a {
-        color: #fff;
+        color: #00d2ff;
         text-decoration: none;
         margin: 0 15px;
         font-weight: bold;
+        font-size: 1.1em;
       }
+
       nav a:hover {
-        text-decoration: underline;
+        color: #3a47d5;
+        text-shadow: 0 0 5px #3a47d5;
       }
+
+      /* Główna zawartość */
       main {
         padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
+
       article {
+        background: #1c2230;
         margin-bottom: 20px;
         padding: 15px;
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 5px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
+        width: 90%;
+        max-width: 600px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
+
+      article:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 20px rgba(0, 210, 255, 0.8);
+      }
+
+      h2 {
+        color: #00d2ff;
+        text-transform: uppercase;
+        font-size: 1.5em;
+      }
+
+      /* Stopka */
       footer {
-        background: #333;
-        color: #fff;
+        background: #1c2230;
+        color: #e0e0e0;
         text-align: center;
         padding: 10px;
         margin-top: 20px;
+        font-size: 0.9em;
+      }
+
+      /* Responsywność strony */
+      @media (max-width: 768px) {
+        main {
+          padding: 10px;
+        }
+        article {
+          width: 100%;
+        }
       }
     </style>
   </head>
   <body>
+    <!-- Nagłówek -->
     <header>
       <h1>Witaj na moim blogu!</h1>
     </header>
+
+    <!-- Nawigacja -->
     <nav>
       <a href="#home">Strona Główna</a>
       <a href="#about">O mnie</a>
       <a href="#contact">Kontakt</a>
     </nav>
+
+    <!-- Główna treść strony -->
     <main>
-      <article>
+      <article id="home">
         <h2>Pierwszy wpis na blogu</h2>
-        <p>To jest mój pierwszy wpis. Uczę się tworzyć strony internetowe krok po kroku!</p>
+        <p>
+          To jest mój pierwszy wpis. Uczę się tworzyć strony internetowe krok po
+          kroku!
+        </p>
       </article>
+
       <article>
         <h2>Drugi wpis</h2>
-        <p>Dodaję kolejne wpisy na bloga, ucząc się HTML i CSS. To naprawdę proste!</p>
+        <p>
+          Dodaję kolejne wpisy na bloga, ucząc się HTML i CSS. To naprawdę
+          proste!
+        </p>
       </article>
+
       <article>
         <h2>Nowy wpis na blogu</h2>
         <p>To jest nowa treść, którą właśnie dodałem do mojego bloga!</p>
       </article>
-      
     </main>
+
+    <!-- Stopka -->
     <footer>
       <p>Stworzono przez [Twoje Imię] &copy; 2024</p>
     </footer>
   </body>
 </html>
+
 
