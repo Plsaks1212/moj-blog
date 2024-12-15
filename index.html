@@ -4,11 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mój Blog Sci-Fi</title>
+    <!-- Meta Tagi SEO -->
+    <meta
+      name="description"
+      content="Futurystyczny blog w stylu science-fiction z dynamicznymi efektami, galerią obrazów i interaktywnymi sekcjami."
+    />
+    <meta
+      name="keywords"
+      content="blog, science-fiction, futurystyczny design, web development, HTML, CSS"
+    />
+    <meta name="author" content="Karol" />
+
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
     <style>
       /* Globalne style */
       * {
@@ -51,7 +63,6 @@
         background: linear-gradient(90deg, #00d2ff, #3a47d5);
         padding: 20px;
         text-align: center;
-        font-size: 1.5em;
         letter-spacing: 3px;
         text-transform: uppercase;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
@@ -81,7 +92,7 @@
         text-shadow: 0 0 10px #3a47d5;
       }
 
-      /* Sekcja główna */
+      /* Główna zawartość */
       main {
         padding: 20px;
       }
@@ -108,12 +119,23 @@
         margin-bottom: 10px;
       }
 
-      /* Sekcja "O mnie" */
-      img.avatar {
-        width: 150px;
-        border-radius: 50%;
-        box-shadow: 0 0 10px #00d2ff;
-        margin-top: 10px;
+      /* Galeria obrazów */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+      }
+
+      .gallery img {
+        width: 100%;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #00d2ff;
       }
 
       /* Formularz kontaktowy */
@@ -154,27 +176,7 @@
         text-align: center;
         color: #e0e0e0;
       }
-
-      /* Responsywność */
-      @media (max-width: 768px) {
-        nav a {
-          display: block;
-          margin: 10px 0;
-        }
-      }
     </style>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const links = document.querySelectorAll("nav a");
-        links.forEach(link => {
-          link.addEventListener("click", e => {
-            e.preventDefault();
-            const target = document.querySelector(link.getAttribute("href"));
-            target.scrollIntoView({ behavior: "smooth" });
-          });
-        });
-      });
-    </script>
   </head>
   <body>
     <!-- Nagłówek -->
@@ -184,30 +186,29 @@
     <nav>
       <a href="#home">Strona Główna</a>
       <a href="#about">O mnie</a>
+      <a href="#gallery">Galeria</a>
       <a href="#contact">Kontakt</a>
     </nav>
 
     <!-- Główna treść -->
     <main>
-      <article id="home">
-        <h2>Pierwszy wpis na blogu</h2>
-        <p>To jest mój pierwszy wpis. Uczę się tworzyć strony internetowe krok po kroku!</p>
-      </article>
-
-      <article>
-        <h2>Drugi wpis</h2>
-        <p>Dodaję kolejne wpisy na bloga, ucząc się HTML i CSS. To naprawdę proste!</p>
-      </article>
-
-      <article>
-        <h2>Nowy wpis na blogu</h2>
-        <p>To jest nowa treść, którą właśnie dodałem do mojego bloga!</p>
-      </article>
+      <section id="home">
+        <h2>Strona Główna</h2>
+        <p>To jest futurystyczny blog w stylu science-fiction. Zapraszam do przeglądania treści!</p>
+      </section>
 
       <section id="about">
         <h2>O mnie</h2>
         <p>Cześć! Jestem Karol i uczę się tworzyć strony internetowe w stylu science-fiction.</p>
-        <img src="avatar.png" alt="Zdjęcie autora" class="avatar" />
+      </section>
+
+      <section id="gallery">
+        <h2>Galeria Obrazów</h2>
+        <div class="gallery">
+          <img src="img1.png" alt="Obraz 1" />
+          <img src="img2.png" alt="Obraz 2" />
+          <img src="img3.png" alt="Obraz 3" />
+        </div>
       </section>
 
       <section id="contact">
