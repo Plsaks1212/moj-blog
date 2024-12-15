@@ -14,7 +14,7 @@
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
-        color: #e0e0e0; /* Jasny kolor tekstu dla kontrastu */
+        color: #e0e0e0; /* Jasny kolor tekstu */
       }
 
       /* Nagłówek strony */
@@ -56,7 +56,8 @@
         align-items: center;
       }
 
-      article {
+      article,
+      section {
         background: #1c2230;
         margin-bottom: 20px;
         padding: 15px;
@@ -67,7 +68,8 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
-      article:hover {
+      article:hover,
+      section:hover {
         transform: scale(1.03);
         box-shadow: 0 0 20px rgba(0, 210, 255, 0.8);
       }
@@ -76,6 +78,42 @@
         color: #00d2ff;
         text-transform: uppercase;
         font-size: 1.5em;
+      }
+
+      img {
+        width: 200px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #00d2ff;
+        margin: 10px 0;
+      }
+
+      /* Formularz kontaktowy */
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      form input,
+      form textarea {
+        padding: 8px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      form button {
+        background: #00d2ff;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      form button:hover {
+        background: #3a47d5;
+        box-shadow: 0 0 5px #3a47d5;
       }
 
       /* Stopka */
@@ -88,16 +126,29 @@
         font-size: 0.9em;
       }
 
-      /* Responsywność strony */
+      /* Responsywność */
       @media (max-width: 768px) {
         main {
           padding: 10px;
         }
-        article {
+        article,
+        section {
           width: 100%;
         }
       }
     </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll("nav a");
+        links.forEach(link => {
+          link.addEventListener("click", e => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute("href"));
+            target.scrollIntoView({ behavior: "smooth" });
+          });
+        });
+      });
+    </script>
   </head>
   <body>
     <!-- Nagłówek -->
@@ -114,33 +165,53 @@
 
     <!-- Główna treść strony -->
     <main>
+      <!-- Sekcja Strona Główna -->
       <article id="home">
         <h2>Pierwszy wpis na blogu</h2>
-        <p>
-          To jest mój pierwszy wpis. Uczę się tworzyć strony internetowe krok po
-          kroku!
-        </p>
+        <p>To jest mój pierwszy wpis. Uczę się tworzyć strony internetowe krok po kroku!</p>
       </article>
 
       <article>
         <h2>Drugi wpis</h2>
-        <p>
-          Dodaję kolejne wpisy na bloga, ucząc się HTML i CSS. To naprawdę
-          proste!
-        </p>
+        <p>Dodaję kolejne wpisy na bloga, ucząc się HTML i CSS. To naprawdę proste!</p>
       </article>
 
       <article>
         <h2>Nowy wpis na blogu</h2>
         <p>To jest nowa treść, którą właśnie dodałem do mojego bloga!</p>
       </article>
+
+      <!-- Sekcja O mnie -->
+      <section id="about">
+        <h2>O mnie</h2>
+        <p>Cześć! Jestem Karol i uczę się tworzyć strony internetowe. Moim celem jest stworzenie bloga w stylu science-fiction.</p>
+        <img src="avatar.png" alt="Zdjęcie autora" />
+      </section>
+
+      <!-- Sekcja Kontakt -->
+      <section id="contact">
+        <h2>Kontakt</h2>
+        <form>
+          <label for="name">Twoje Imię:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Twój Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Wiadomość:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit">Wyślij</button>
+        </form>
+      </section>
     </main>
 
     <!-- Stopka -->
     <footer>
-      <p>Stworzono przez [Twoje Imię] &copy; 2024</p>
+      <p>Stworzono przez Karol &copy; 2024</p>
     </footer>
   </body>
 </html>
+
 
 
