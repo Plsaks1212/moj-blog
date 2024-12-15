@@ -3,28 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mój Blog</title>
+    <title>Mój Blog Sci-Fi</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      /* Stylizacja całej strony */
-      body {
-        font-family: Arial, sans-serif;
+      /* Globalne style */
+      * {
         margin: 0;
         padding: 0;
-        background-image: url('tlo-sci-fi.png'); /* Tło w stylu sci-fi */
-        background-size: cover;
-        background-attachment: fixed;
-        background-position: center;
-        color: #e0e0e0; /* Jasny kolor tekstu */
+        box-sizing: border-box;
       }
 
-      /* Nagłówek strony */
+      body {
+        font-family: "Orbitron", sans-serif;
+        background-color: #0b0e17;
+        color: #e0e0e0;
+        overflow-x: hidden;
+      }
+
+      /* Dynamiczne tło */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("tlo-sci-fi.png") no-repeat center center/cover;
+        z-index: -1;
+        animation: backgroundMove 15s infinite alternate;
+      }
+
+      @keyframes backgroundMove {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: -500px 500px;
+        }
+      }
+
+      /* Nagłówek */
       header {
         background: linear-gradient(90deg, #00d2ff, #3a47d5);
-        color: #fff;
         padding: 20px;
         text-align: center;
+        font-size: 1.5em;
+        letter-spacing: 3px;
         text-transform: uppercase;
-        letter-spacing: 2px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
       }
 
@@ -33,58 +62,58 @@
         background: #1c2230;
         padding: 10px;
         text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 10;
       }
 
       nav a {
         color: #00d2ff;
         text-decoration: none;
-        margin: 0 15px;
+        margin: 0 20px;
         font-weight: bold;
-        font-size: 1.1em;
+        font-size: 1.2em;
+        transition: color 0.3s ease;
       }
 
       nav a:hover {
         color: #3a47d5;
-        text-shadow: 0 0 5px #3a47d5;
+        text-shadow: 0 0 10px #3a47d5;
       }
 
-      /* Główna zawartość */
+      /* Sekcja główna */
       main {
         padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
       }
 
       article,
       section {
-        background: #1c2230;
+        background: rgba(28, 34, 48, 0.9);
         margin-bottom: 20px;
-        padding: 15px;
+        padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
-        width: 90%;
-        max-width: 600px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 0.3s ease;
       }
 
       article:hover,
       section:hover {
-        transform: scale(1.03);
+        transform: translateY(-10px);
         box-shadow: 0 0 20px rgba(0, 210, 255, 0.8);
       }
 
       h2 {
         color: #00d2ff;
         text-transform: uppercase;
-        font-size: 1.5em;
+        margin-bottom: 10px;
       }
 
-      img {
-        width: 200px;
+      /* Sekcja "O mnie" */
+      img.avatar {
+        width: 150px;
         border-radius: 50%;
         box-shadow: 0 0 10px #00d2ff;
-        margin: 10px 0;
+        margin-top: 10px;
       }
 
       /* Formularz kontaktowy */
@@ -96,44 +125,41 @@
 
       form input,
       form textarea {
-        padding: 8px;
+        padding: 10px;
         border: none;
         border-radius: 5px;
+        background: #0b0e17;
+        color: #e0e0e0;
       }
 
       form button {
         background: #00d2ff;
         color: #fff;
-        border: none;
         padding: 10px;
+        border: none;
         border-radius: 5px;
         cursor: pointer;
         font-weight: bold;
+        transition: background 0.3s;
       }
 
       form button:hover {
         background: #3a47d5;
-        box-shadow: 0 0 5px #3a47d5;
       }
 
       /* Stopka */
       footer {
         background: #1c2230;
-        color: #e0e0e0;
-        text-align: center;
         padding: 10px;
-        margin-top: 20px;
-        font-size: 0.9em;
+        text-align: center;
+        color: #e0e0e0;
       }
 
       /* Responsywność */
       @media (max-width: 768px) {
-        main {
-          padding: 10px;
-        }
-        article,
-        section {
-          width: 100%;
+        nav a {
+          display: block;
+          margin: 10px 0;
         }
       }
     </style>
@@ -152,9 +178,7 @@
   </head>
   <body>
     <!-- Nagłówek -->
-    <header>
-      <h1>Witaj na moim blogu!</h1>
-    </header>
+    <header>Witaj na moim blogu sci-fi!</header>
 
     <!-- Nawigacja -->
     <nav>
@@ -163,9 +187,8 @@
       <a href="#contact">Kontakt</a>
     </nav>
 
-    <!-- Główna treść strony -->
+    <!-- Główna treść -->
     <main>
-      <!-- Sekcja Strona Główna -->
       <article id="home">
         <h2>Pierwszy wpis na blogu</h2>
         <p>To jest mój pierwszy wpis. Uczę się tworzyć strony internetowe krok po kroku!</p>
@@ -181,35 +204,25 @@
         <p>To jest nowa treść, którą właśnie dodałem do mojego bloga!</p>
       </article>
 
-      <!-- Sekcja O mnie -->
       <section id="about">
         <h2>O mnie</h2>
-        <p>Cześć! Jestem Karol i uczę się tworzyć strony internetowe. Moim celem jest stworzenie bloga w stylu science-fiction.</p>
-        <img src="avatar.png" alt="Zdjęcie autora" />
+        <p>Cześć! Jestem Karol i uczę się tworzyć strony internetowe w stylu science-fiction.</p>
+        <img src="avatar.png" alt="Zdjęcie autora" class="avatar" />
       </section>
 
-      <!-- Sekcja Kontakt -->
       <section id="contact">
         <h2>Kontakt</h2>
         <form>
-          <label for="name">Twoje Imię:</label>
-          <input type="text" id="name" name="name" required />
-
-          <label for="email">Twój Email:</label>
-          <input type="email" id="email" name="email" required />
-
-          <label for="message">Wiadomość:</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-
+          <input type="text" placeholder="Twoje Imię" required />
+          <input type="email" placeholder="Twój Email" required />
+          <textarea rows="4" placeholder="Twoja wiadomość" required></textarea>
           <button type="submit">Wyślij</button>
         </form>
       </section>
     </main>
 
     <!-- Stopka -->
-    <footer>
-      <p>Stworzono przez Karol &copy; 2024</p>
-    </footer>
+    <footer>Stworzono przez Karol &copy; 2024</footer>
   </body>
 </html>
 
