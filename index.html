@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mój Blog - Promuj swoje projekty</title>
+    <title>Mój Blog</title>
     <link rel="stylesheet" href="style.css" />
     <style>
       /* Ogólne style */
@@ -11,130 +11,129 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-image: url('tlo-sci-fi.png');
+        background: url("tlo-sci-fi.png") no-repeat center center fixed;
         background-size: cover;
-        background-attachment: fixed;
-        background-position: center;
         color: #e0e0e0;
       }
-
       header {
         background: linear-gradient(to right, #0078d7, #0056a3);
         color: #fff;
-        padding: 20px;
+        padding: 15px;
         text-align: center;
-        font-size: 1.8em;
       }
-
       nav {
-        text-align: center;
-        background: #00264d;
+        display: flex;
+        justify-content: center;
+        background: #0056a3;
         padding: 10px;
       }
-
       nav a {
         color: #fff;
         text-decoration: none;
-        margin: 0 10px;
+        margin: 0 15px;
         font-weight: bold;
       }
-
       nav a:hover {
         text-decoration: underline;
       }
-
-      /* Sekcja wpisów */
       main {
         padding: 20px;
-        background: rgba(0, 0, 0, 0.7);
-        border-radius: 10px;
-        margin: 20px;
       }
-
       article {
-        margin-bottom: 20px;
-        padding: 15px;
         background: #333;
-        border: 1px solid #444;
-        border-radius: 5px;
-      }
-
-      /* Sekcja Promowane Projekty */
-      #submissions {
-        margin-top: 30px;
-      }
-
-      .entry {
+        padding: 20px;
         margin-bottom: 15px;
-        padding: 10px;
-        background: #222;
-        border: 1px solid #555;
-        border-radius: 5px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       }
-
-      .entry img {
-        max-width: 150px;
-        margin-bottom: 10px;
+      h2 {
+        color: #00bcd4;
+      }
+      footer {
+        text-align: center;
+        background: #000;
+        color: #fff;
+        padding: 10px;
+        margin-top: 20px;
       }
 
       /* Formularz */
-      form input,
-      form textarea,
-      form button {
+      form {
+        background: #444;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+      input,
+      textarea {
         width: 100%;
         padding: 10px;
         margin: 5px 0;
         border: none;
         border-radius: 5px;
       }
-
-      form button {
-        background-color: #0078d7;
+      button {
+        background: #0078d7;
         color: #fff;
+        border: none;
+        padding: 10px;
         cursor: pointer;
+        border-radius: 5px;
+      }
+      button:hover {
+        background: #0056a3;
       }
 
-      form button:hover {
-        background-color: #0056a3;
+      /* Galeria obrazów */
+      .gallery-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .gallery-container img {
+        width: 200px;
+        height: auto;
+        border: 2px solid #00bcd4;
+        border-radius: 5px;
+        transition: transform 0.3s ease;
+      }
+      .gallery-container img:hover {
+        transform: scale(1.1);
       }
     </style>
   </head>
   <body>
-    <header>Witaj na moim blogu!</header>
-
-    <!-- Nawigacja -->
+    <!-- Nagłówek i menu nawigacyjne -->
+    <header>
+      <h1>Witaj na moim blogu!</h1>
+    </header>
     <nav>
       <a href="#home">Strona Główna</a>
       <a href="#about">O mnie</a>
       <a href="#contact">Kontakt</a>
     </nav>
 
-    <!-- Wpisy na blogu -->
+    <!-- Sekcja główna z blogiem -->
     <main>
-      <article>
-        <h2>Pierwszy wpis na blogu</h2>
-        <p>To jest mój pierwszy wpis. Uczę się tworzyć strony internetowe krok po kroku!</p>
-      </article>
-      <article>
-        <h2>Drugi wpis</h2>
-        <p>Dodaję kolejne wpisy na bloga, ucząc się HTML i CSS. To naprawdę proste!</p>
-      </article>
-      <article>
-        <h2>Nowy wpis na blogu</h2>
-        <p>To jest nowa treść, którą właśnie dodałem do mojego bloga!</p>
-      </article>
-
-      <!-- Sekcja Promowane Projekty -->
-      <section id="submissions">
-        <h2>Promowane projekty</h2>
-        <div id="entries">
-          <!-- Projekty będą załadowane dynamicznie -->
-        </div>
+      <section>
+        <article>
+          <h2>Pierwszy wpis na blogu</h2>
+          <p>To jest mój pierwszy wpis. Uczę się tworzyć strony internetowe krok po kroku!</p>
+        </article>
+        <article>
+          <h2>Drugi wpis</h2>
+          <p>Dodaję kolejne wpisy na bloga, ucząc się HTML i CSS. To naprawdę proste!</p>
+        </article>
+        <article>
+          <h2>Nowy wpis na blogu</h2>
+          <p>To jest nowa treść, którą właśnie dodałem do mojego bloga!</p>
+        </article>
       </section>
 
-      <!-- Formularz dodawania projektu -->
+      <!-- Sekcja Promowane Projekty -->
       <section>
-        <h2>Dodaj projekt</h2>
+        <h2>Promowane projekty</h2>
         <form id="submission-form">
           <input type="text" id="name" placeholder="Nazwa projektu" required />
           <textarea id="description" placeholder="Opis" rows="4" required></textarea>
@@ -142,11 +141,26 @@
           <input type="url" id="image" placeholder="URL do obrazka" required />
           <button type="submit">Wyślij</button>
         </form>
+        <div id="entries"></div>
+      </section>
+
+      <!-- Galeria obrazów -->
+      <section id="gallery">
+        <h2>Galeria obrazów</h2>
+        <div class="gallery-container">
+          <img src="img1.png" alt="Obraz 1" />
+          <img src="img2.png" alt="Obraz 2" />
+          <img src="img3.png" alt="Obraz 3" />
+        </div>
       </section>
     </main>
 
-    <!-- Podłączenie skryptu -->
+    <!-- Stopka -->
+    <footer>
+      <p>Stworzono przez [Twoje Imię] &copy; 2024</p>
+    </footer>
+
+    <!-- Dodanie skryptu -->
     <script src="script.js"></script>
   </body>
 </html>
-
