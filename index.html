@@ -3,32 +3,150 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Promuj swoje projekty</title>
+    <title>Mój Blog - Promuj swoje projekty</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Ogólne style */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('tlo-sci-fi.png');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        color: #e0e0e0;
+      }
+
+      header {
+        background: linear-gradient(to right, #0078d7, #0056a3);
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        font-size: 1.8em;
+      }
+
+      nav {
+        text-align: center;
+        background: #00264d;
+        padding: 10px;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      /* Sekcja wpisów */
+      main {
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        margin: 20px;
+      }
+
+      article {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: #333;
+        border: 1px solid #444;
+        border-radius: 5px;
+      }
+
+      /* Sekcja Promowane Projekty */
+      #submissions {
+        margin-top: 30px;
+      }
+
+      .entry {
+        margin-bottom: 15px;
+        padding: 10px;
+        background: #222;
+        border: 1px solid #555;
+        border-radius: 5px;
+      }
+
+      .entry img {
+        max-width: 150px;
+        margin-bottom: 10px;
+      }
+
+      /* Formularz */
+      form input,
+      form textarea,
+      form button {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: none;
+        border-radius: 5px;
+      }
+
+      form button {
+        background-color: #0078d7;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      form button:hover {
+        background-color: #0056a3;
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <h1>Promuj swoje projekty i media społecznościowe</h1>
-    </header>
+    <header>Witaj na moim blogu!</header>
 
+    <!-- Nawigacja -->
+    <nav>
+      <a href="#home">Strona Główna</a>
+      <a href="#about">O mnie</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+
+    <!-- Wpisy na blogu -->
     <main>
+      <article>
+        <h2>Pierwszy wpis na blogu</h2>
+        <p>To jest mój pierwszy wpis. Uczę się tworzyć strony internetowe krok po kroku!</p>
+      </article>
+      <article>
+        <h2>Drugi wpis</h2>
+        <p>Dodaję kolejne wpisy na bloga, ucząc się HTML i CSS. To naprawdę proste!</p>
+      </article>
+      <article>
+        <h2>Nowy wpis na blogu</h2>
+        <p>To jest nowa treść, którą właśnie dodałem do mojego bloga!</p>
+      </article>
+
+      <!-- Sekcja Promowane Projekty -->
       <section id="submissions">
         <h2>Promowane projekty</h2>
-        <div id="entries"></div>
+        <div id="entries">
+          <!-- Projekty będą załadowane dynamicznie -->
+        </div>
       </section>
 
+      <!-- Formularz dodawania projektu -->
       <section>
         <h2>Dodaj projekt</h2>
         <form id="submission-form">
           <input type="text" id="name" placeholder="Nazwa projektu" required />
           <textarea id="description" placeholder="Opis" rows="4" required></textarea>
           <input type="url" id="url" placeholder="Link do projektu" required />
-          <input type="url" id="image" placeholder="URL do obrazka" />
-          <button type="button" id="submit-btn">Wyślij</button>
+          <input type="url" id="image" placeholder="URL do obrazka" required />
+          <button type="submit">Wyślij</button>
         </form>
       </section>
     </main>
 
+    <!-- Podłączenie skryptu -->
     <script src="script.js"></script>
   </body>
 </html>
+
