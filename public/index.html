@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promuj swoje projekty</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Promuj swoje projekty i media społecznościowe</h1>
+    </header>
+
+    <main>
+      <section id="submissions">
+        <h2>Promowane projekty</h2>
+        <div id="entries"></div>
+      </section>
+
+      <section>
+        <h2>Dodaj projekt</h2>
+        <form id="submission-form">
+          <input type="text" id="name" placeholder="Nazwa projektu" required />
+          <textarea id="description" placeholder="Opis" rows="4" required></textarea>
+          <input type="url" id="url" placeholder="Link do projektu" required />
+          <input type="url" id="image" placeholder="URL do obrazka" />
+          <button type="button" id="submit-btn">Wyślij</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
